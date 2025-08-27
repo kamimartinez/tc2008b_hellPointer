@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5929728889280781472}
   - component: {fileID: 3467927053655003754}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5128407610447707031
 Transform:
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,4 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efcb8bbc9c540a4f9a786ce900f9184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: {x: -10, y: 0}
+  maxLifeTime: 3
+  Velocity: {x: 30, y: 0}

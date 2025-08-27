@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {   
-    private const float MAX_LIFE_TIME = 3f;
+    [SerializeField] private float maxLifeTime = 3f;
     private float _lifeTime = 0f;
     public Vector2 Velocity;
 
@@ -15,7 +15,7 @@ public class Laser : MonoBehaviour
         transform.position += (Vector3)Velocity * Time.deltaTime;
         _lifeTime += Time.deltaTime;
 
-        if(_lifeTime > MAX_LIFE_TIME){
+        if(_lifeTime > maxLifeTime){
             Disable();
         }
     }

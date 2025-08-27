@@ -47,4 +47,12 @@ public class ConjuntoLaser : MonoBehaviour
         _lasers[_lasers.Count - 1].gameObject.SetActive(true);    
         return _lasers[_lasers.Count - 1];
     }
+
+    public int ContadorLasers() {
+        int count = 0;
+        for (int i = 0; i < _lasers.Count; i++) {
+            if (_lasers[i].gameObject.activeSelf) count++;
+        }
+        return count;
+    }
 }
