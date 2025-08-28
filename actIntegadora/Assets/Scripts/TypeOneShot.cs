@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TypeOneShot 
 {
-    public int cantLasers = 5;
-    public float LaserSpeed = 30f;
+    public int cantLasers = 10;
+    public float LaserSpeed = 175f;
     public float CooldownAfterShot;
 }

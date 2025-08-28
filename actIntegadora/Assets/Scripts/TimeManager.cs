@@ -3,40 +3,48 @@ using System;
 
 public class TimeManager : MonoBehaviour
 {
+    public static Action OnSecondChanged;
     public static Action OnMinuteChanged;
     public static Action OnHourChanged;
 
+    public static int Second { get; private set; } 
     public static int Minute{get; private set;}
     public static int Hour{get;private set;}
 
-    private float minuteToRealTime = 0.5f;
     private float timer;
 
     void Start()
-    {
+    {   
+        Second = 0;
         Minute = 0;
         Hour = 10;
-        timer = minuteToRealTime;
+        timer = 1f;
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
 
-        if(timer <= 0)
+        if(timer <= 0f)
         {
-            Minute++;
+            Second++;
+            Debug.Log("Tick: " + Second);
+            OnSecondChanged?.Invoke();
 
-            OnMinuteChanged?.Invoke();
-
-            if(Minute >= 60)
+            if(Second >= 60)
             {
+                Minute++;
+                OnMinuteChanged?.Invoke();
+                Second = 0;
+            }
+
+            if (Minute >= 60) {
                 Hour++;
                 OnHourChanged?.Invoke();
                 Minute = 0;
             }
 
-            timer = minuteToRealTime;
+            timer = 1f;
         }
-}
+    }
 }
