@@ -26,9 +26,15 @@ public static class Ataque
         for (int i = 0; i < cantLasers; i++) {
 
             float angle = i * rotation + time * 50f; 
-            
+
             Vector2 dir = (Quaternion.Euler(0, 0, angle) * direction).normalized;
             SimpleShot(position, dir * speed);
         }
     }
+
+    public static void TypeStraight(Vector2 position, Vector2 direction, int cantLasers, float speed) {
+        for (int i = 0; i < cantLasers; i++) {
+            SimpleShot(position, direction * speed);
+        }
+}
 }

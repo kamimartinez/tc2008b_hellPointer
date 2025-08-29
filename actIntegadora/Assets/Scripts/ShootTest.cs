@@ -8,6 +8,9 @@ public class ShootTest : MonoBehaviour
     private float laserFireTimer = 0f;
     private int patternIndex = 0;
     private int secondsPassed = 0;
+    private float amplitude = 5f;
+    private float moveSpeed = 1f;
+    private Vector2 startPos;
 
     private void OnEnable(){
         TimeManager.OnSecondChanged += UpdatePattern;
@@ -23,10 +26,13 @@ public class ShootTest : MonoBehaviour
         if (laserFireTimer <= 0f) {
             switch (patternIndex) {
                 case 0: 
-                    Ataque.TypeCircle(transform.position, transform.up, 20, 70f);
+                    Ataque.TypeCircle(transform.position, transform.up, 10, 70f);
                     break;
                 case 1: 
                     Ataque.TypeSpiral(transform.position, transform.up, 5, 70f, 12f, Time.time);
+                    break;
+                case 2:
+                    Ataque.TypeStraight(transform.position, transform.up, 1, 70f);
                     break;
             }
 
@@ -41,7 +47,7 @@ public class ShootTest : MonoBehaviour
         if (secondsPassed % 10 == 0) { 
             patternIndex++;
 
-            if (patternIndex > 3) {
+            if (patternIndex > 2) {
                 patternIndex = 0; 
             }
             Debug.Log("Cambiando al patrón: " + patternIndex);
