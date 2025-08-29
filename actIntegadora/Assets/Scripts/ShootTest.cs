@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShootTest : MonoBehaviour
 {
-    [SerializeField] private float laserFireRate = 0.1f;
+    [SerializeField] private float laserFireRate = 0.25f;
 
     private float laserFireTimer = 0f;
     private int patternIndex = 0;
