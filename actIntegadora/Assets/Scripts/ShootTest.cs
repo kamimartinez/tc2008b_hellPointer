@@ -1,9 +1,9 @@
 using UnityEngine;
+using System.Collections;
 
 public class ShootTest : MonoBehaviour
 {
     [SerializeField] private float laserFireRate = 0.1f;
-    [SerializeField] private TypeOneShot[] laserPatterns;
 
     private float laserFireTimer = 0f;
     private int patternIndex = 0;
@@ -11,7 +11,6 @@ public class ShootTest : MonoBehaviour
 
     private void OnEnable(){
         TimeManager.OnSecondChanged += UpdatePattern;
-        Debug.Log("ShootTest suscrito");
     }
 
     private void OnDisable() {
@@ -21,9 +20,16 @@ public class ShootTest : MonoBehaviour
     private void Update() {
         laserFireTimer -= Time.deltaTime;
 
-        if (laserFireTimer <= 0f && laserPatterns.Length > 0) {
-            TypeOneShot currentPattern = laserPatterns[patternIndex];
-            Ataque.TypeOne(transform.position, transform.up, currentPattern);
+        if (laserFireTimer <= 0f) {
+            switch (patternIndex) {
+                case 0: 
+                    Ataque.TypeCircle(transform.position, transform.up, 20, 70f);
+                    break;
+                case 1: 
+                    Ataque.TypeSpiral(transform.position, transform.up, 5, 70f, 12f, Time.time);
+                    break;
+            }
+
             laserFireTimer = laserFireRate;
         }
     }
@@ -35,7 +41,7 @@ public class ShootTest : MonoBehaviour
         if (secondsPassed % 10 == 0) { 
             patternIndex++;
 
-            if (patternIndex >= laserPatterns.Length) {
+            if (patternIndex > 3) {
                 patternIndex = 0; 
             }
             Debug.Log("Cambiando al patrón: " + patternIndex);
