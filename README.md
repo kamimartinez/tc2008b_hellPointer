@@ -1,1 +1,3 @@
 # tc2008b_hellPointer
+Para la actividad de medio termino se realizo una implementación del famoso juego conocido como Bullet Hell, donde un jugador debe esquivar proyectiles e intentar derrotar a sus oponentes. Se selecciono la dificultad Facil, tomando en cuenta las horas de disponibilidad y conocimientos basicos de Unity. Se implementaron tres patrones mecanicamente diferentes entre si y un contador de proyectiles activos. Asi mismo, se agregaron meteoritos a la interfaz para una mejor experiencia del usuario. 
+<img width="822" height="388" alt="image" src="https://github.com/user-attachments/assets/84af13eb-7ca6-4c2a-9a3e-8e37ed3f828f" />
