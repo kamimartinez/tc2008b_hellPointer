@@ -7,6 +7,6 @@ public class LaserUI : MonoBehaviour
 
     private void Update() {
         int activeLasers = ConjuntoLaser.Instance.ContadorLasers();
-            laserText.text = "Balas activas: " + activeLasers;
+            laserText.text = "Lasers: " + activeLasers;
     }
 }

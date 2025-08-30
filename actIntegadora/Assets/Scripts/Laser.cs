@@ -29,4 +29,10 @@ public class Laser : MonoBehaviour
         gameObject.SetActive(false); 
         _lifeTime = 0f;
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Meteor")) {
+            Disable();
+        }
+    }
 }
